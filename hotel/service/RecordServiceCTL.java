@@ -6,65 +6,67 @@ import hotel.entities.ServiceType;
 import hotel.utils.IOUtils;
 
 public class RecordServiceCTL {
-	
-	private static enum State {ROOM, SERVICE, CHARGE, CANCELLED, COMPLETED};
-	
-	private Hotel hotel;
-	private RecordServiceUI recordServiceUI;
-	private State state;
-	
-	private Booking booking;
-	private int roomNumber;
 
+    private static enum State {
+        ROOM, SERVICE, CHARGE, CANCELLED, COMPLETED
+    };
 
-	public RecordServiceCTL(Hotel hotel) {
-		this.recordServiceUI = new RecordServiceUI(this);
-		state = State.ROOM;
-		this.hotel = hotel;
-	}
+    private Hotel hotel;
+    private RecordServiceUI recordServiceUI;
+    private State state;
 
-	
-	public void run() {		
-		IOUtils.trace("PayForServiceCTL: run");
-		recordServiceUI.run();
-	}
+    private Booking booking;
+    private int roomNumber;
 
+    public RecordServiceCTL(Hotel hotel) {
+        this.recordServiceUI = new RecordServiceUI(this);
+        state = State.ROOM;
+        this.hotel = hotel;
+    }
 
-	public void roomNumberEntered(int roomNumber) {
-		if (state != State.ROOM) {
-			String mesg = String.format("PayForServiceCTL: roomNumberEntered : bad state : %s", state);
-			throw new RuntimeException(mesg);
-		}
-		booking = hotel.findActiveBookingByRoomId(roomNumber);
-		if (booking == null) {
-			String mesg = String.format("No active booking for room id: %d", roomNumber);
-			recordServiceUI.displayMessage(mesg);
-		}
-		else {
-			this.roomNumber = roomNumber;
-			state = State.SERVICE;
-			recordServiceUI.setState(RecordServiceUI.State.SERVICE);
-		}
-	}
-	
-	
-	public void serviceDetailsEntered(ServiceType serviceType, double cost) {
-		// TODO Auto-generated method stub
-	}
+    public void run() {
+        IOUtils.trace("PayForServiceCTL: run");
+        recordServiceUI.run();
+    }
 
+    public void roomNumberEntered(int roomNumber) {
+        if (state != State.ROOM) {
+            String mesg = String.format("PayForServiceCTL: roomNumberEntered : bad state : %s", state);
+            throw new RuntimeException(mesg);
+        }
+        booking = hotel.findActiveBookingByRoomId(roomNumber);
+        if (booking == null) {
+            String mesg = String.format("No active booking for room id: %d", roomNumber);
+            recordServiceUI.displayMessage(mesg);
+        } else {
+            this.roomNumber = roomNumber;
+            state = State.SERVICE;
+            recordServiceUI.setState(RecordServiceUI.State.SERVICE);
+        }
+    }
 
-	public void cancel() {
-		recordServiceUI.displayMessage("Pay for service cancelled");
-		state = State.CANCELLED;
-		recordServiceUI.setState(RecordServiceUI.State.CANCELLED);
-	}
+    public void serviceDetailsEntered(ServiceType serviceType, double cost) {
+        // TODO Auto-generated method stub
+        if (state != State.SERVICE) {
+            String msg = String.format("PayForServiceCTL: serviceDetailsEntered : bad state : %s", state);
+            throw new RuntimeException(msg);
+        }
+        //addServiceCharge(int roomId, ServiceType serviceType, double cost)
+        hotel.addServiceCharge(roomNumber, serviceType, cost);
+        //void displayServiceChargeMessage(int roomNumber, double cost, String serviceDescription)
+        recordServiceUI.displayServiceChargeMessage(roomNumber, cost, "PayForServiceCTL: serviceDetailsEntered");
+        state = State.COMPLETED;
+        recordServiceUI.setState(RecordServiceUI.State.COMPLETED);
+    }
 
+    public void cancel() {
+        recordServiceUI.displayMessage("Pay for service cancelled");
+        state = State.CANCELLED;
+        recordServiceUI.setState(RecordServiceUI.State.CANCELLED);
+    }
 
-	public void completed() {
-		recordServiceUI.displayMessage("Pay for service completed");
-	}
-
-
-	
+    public void completed() {
+        recordServiceUI.displayMessage("Pay for service completed");
+    }
 
 }
