@@ -132,18 +132,38 @@ public class Booking {
 	}
 
 
-	public void checkIn() {
+	public void checkin() {
+            
 		// TODO Auto-generated method stub
+            if (state != State.PENDING ){
+                throw new RunTimeException ("Room is not pending");
+            }
+         
+            room.checkIn();
+            state = State.CHECKED_IN;
+            
+                
+              
 	}
 
 
 	public void addServiceCharge(ServiceType serviceType, double cost) {
 		// TODO Auto-generated method stub
+            if (state != State.CHECKED_IN){
+                throw new RunTimeException ("Room is not checked in");
+            }
+            ServiceCharge serviceCharge = new ServiceCharge(serviceType, cost);
+            charges.add(serviceCharge);
 	}
 
 
 	public void checkOut() {
 		// TODO Auto-generated method stub
+            if (state != State.CHECKED_IN){
+                throw new RunTimeException ("Room is not checked in")
+            }
+            room.checkout();
+            state = State.CHECKED_OUT;
 	}
 
 }
