@@ -70,7 +70,7 @@ public class BookingJunitTest {
          booking.checkIn();
          assertEquals(true, booking.isCheckedIn());
     }
-    
+
     @Test(expected = RuntimeException.class)
     public void checkInTestException(){
          booking.checkIn();
@@ -108,6 +108,70 @@ public class BookingJunitTest {
         assertEquals(charges, booking.getCharges());
         
     }
+
+    @Test
+    public void addServiceChargeTestDiffrentService(){
+        
+        ServiceType serviceType1 = ServiceType.ROOM_SERVICE;
+        ServiceType serviceType2 = ServiceType.BAR_FRIDGE;
+        int cost = 100;
+        ServiceCharge serviceCharge = new ServiceCharge(serviceType1, cost);
+		charges.add(serviceCharge);
+        
+        booking.checkIn();
+        booking.addServiceCharge(serviceType2, cost);
+        assertNotSame(charges, booking.getCharges());
+    }
+
+    @Test
+    public void addServiceChargeTestDiffrentCost(){
+        
+        ServiceType serviceType = ServiceType.ROOM_SERVICE;
+        int cost = 100;
+        ServiceCharge serviceCharge = new ServiceCharge(serviceType, cost);
+		charges.add(serviceCharge);
+        
+        booking.checkIn();
+        booking.addServiceCharge(serviceType, 150);
+        assertNotSame(charges, booking.getCharges());
+    }
+
+    @Test
+    public void addServiceChargeTestTwoServiceSame(){
+        
+        ServiceType serviceTypeFirst = ServiceType.ROOM_SERVICE;
+        ServiceType serviceTypeSecond = ServiceType.RESTAURANT;
+        int costFirst = 100;
+        int costSecond = 500;
+        ServiceCharge serviceCharge = new ServiceCharge(serviceTypeFirst, costFirst);
+        charges.add(serviceCharge);
+        serviceCharge = new ServiceCharge(serviceTypeSecond, costSecond);
+		charges.add(serviceCharge);
+        
+        booking.checkIn();
+        booking.addServiceCharge(serviceTypeFirst, costFirst);
+        booking.addServiceCharge(serviceTypeSecond, costSecond);
+        assertEquals(charges, booking.getCharges());
+    }
+    
+    @Test
+    public void addServiceChargeTestTwoServiceDiffrent(){
+        
+        ServiceType serviceTypeFirst = ServiceType.ROOM_SERVICE;
+        ServiceType serviceTypeSecond = ServiceType.RESTAURANT;
+        int costFirst = 100;
+        int costSecond = 500;
+        ServiceCharge serviceCharge = new ServiceCharge(serviceTypeFirst, costFirst);
+        charges.add(serviceCharge);
+        serviceCharge = new ServiceCharge(serviceTypeSecond, costSecond);
+		charges.add(serviceCharge);
+        
+        booking.checkIn();
+        booking.addServiceCharge(serviceTypeFirst, costFirst);
+        booking.addServiceCharge(serviceTypeFirst, costSecond);
+        assertNotSame(charges, booking.getCharges());
+    }
+
     
     @Test(expected = RuntimeException.class)
     public void checkoutTestException(){
