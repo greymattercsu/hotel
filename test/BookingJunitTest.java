@@ -70,9 +70,16 @@ public class BookingJunitTest {
          booking.checkIn();
          assertEquals(true, booking.isCheckedIn());
     }
+    
     @Test(expected = RuntimeException.class)
     public void checkInTestException(){
          booking.checkIn();
+         booking.checkIn();
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void checkInTestExceptionBookingStateCheckout(){
+         booking.checkOut();
          booking.checkIn();
     }
     
