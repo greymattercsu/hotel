@@ -133,7 +133,12 @@ public class Booking {
 
 
 	public void checkIn() {
-		// TODO Auto-generated method stub
+		if (this.state == State.PENDING){
+			room.checkin();
+			this.state = State.CHECKED_IN;
+		}else{
+			throw new RuntimeException();
+	}
 	}
 
 
