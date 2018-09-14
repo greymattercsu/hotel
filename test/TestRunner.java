@@ -11,10 +11,6 @@ public class TestRunner {
         System.out.println("Running Unit Test.");
         Result result = JUnitCore.runClasses(BookingJunitTest.class);
         System.out.println("[Test Executed]: " + result.getRunCount());
-        System.out.println("[Test result]: " + result.wasSuccessful());
-        for (Failure failure : result.getFailures()) {
-            System.out.println(failure.toString());
-        }
-
+        System.out.println("[Test result]: " + result.wasSuccessful());      
     }
 }  	
