@@ -57,10 +57,10 @@ public class BookingJunitTest {
         public void starting(FrameworkMethod method) {
             System.out.print("[Starting]: " + method.getName());
         }
-        public void failed(Throwable e, FrameworkMethod metho){
+        public void failed(Throwable e, FrameworkMethod method){
             System.out.println(" [Failed]\n\t " + e.getMessage());
         }
-        public void succeeded(FrameworkMethod description) { 
+        public void succeeded(FrameworkMethod method) { 
             System.out.println(" [PASSED]");
         }
     };
