@@ -23,4 +23,14 @@ public class ServiceCharge {
 		return service.getDescription();
 	}
 
+	/* override equal method, so that .equals method comare value instead of refrence */
+	@Override
+    public boolean equals(Object o) {
+        if (!(o instanceof ServiceCharge))
+            return false;
+        ServiceCharge other = (ServiceCharge) o;
+        return other.service.equals(this.service)&&
+               other.cost == this.cost;
+    }
+
 }
