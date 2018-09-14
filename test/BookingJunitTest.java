@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.rules.MethodRule;
 import org.junit.rules.TestWatchman;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
 
 import hotel.entities.*;
 import hotel.credit.CreditCard;
