@@ -152,7 +152,12 @@ public class Booking {
 
 
 	public void checkOut() {
-		// TODO Auto-generated method stub
-	}
+		if( this.state != State.CHECKED_IN){
+			throw new RuntimeException();
+
+		}
+		room.checkout(this);
+		this.state = State.CHECKED_OUT;
+	}	
 
 }
