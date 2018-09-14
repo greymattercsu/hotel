@@ -158,6 +158,6 @@ public class Booking {
 		}
 		room.checkout(this);
 		this.state = State.CHECKED_OUT;
-	}	
+	}
 
 }
