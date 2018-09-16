@@ -130,7 +130,8 @@ public class Hotel {
         if (activeBooking == null) {
             throw new RuntimeException("No active booking found");
 		}
-		
+		activeBooking.isCheckedOut();
+        activeBookingsByRoomId.remove(roomId);
 	}
 
 
