@@ -104,7 +104,12 @@ public class Hotel {
 	public void checkin(long confirmationNumber) {
 		if (findBookingByConfirmationNumber(confirmationNumber) == null) {
             throw new RuntimeException("No booking for confirmation number exists");
-        }
+		}
+		
+		Booking b = findBookingByConfirmationNumber(confirmationNumber);
+		roomId = b.getRoomId();
+		b.checkIn();
+        activeBookingsByRoomId.put(roomId, b);
 	}
 
 
