@@ -90,7 +90,14 @@ public class Hotel {
 			CreditCard creditCard) {
 
 		room.book(guest, arrivalDate, stayLength, occupantNumber, creditCard);
-				
+		Booking booking1 = new Booking(guest, room, arrivalDate, stayLength, occupantNumber, creditCard);
+		long unique = booking1.getConfirmationNumber();
+//
+//       //booking exists , mayb on if statement
+        
+
+        bookingsByConfirmationNumber.put(unique, booking1);
+        return unique;		
 	}
 
 	
