@@ -117,7 +117,10 @@ public class Hotel {
 		Booking activeBooking = findActiveBookingByRoomId(roomId);
         if (activeBooking == null) {
             throw new RuntimeException("No active booking found");
-        }
+		}
+		activeBooking.addServiceCharge(serviceType, cost);
+		activeBookingsByRoomId.put(roomId, activeBooking);
+		
 	}
 
 	
