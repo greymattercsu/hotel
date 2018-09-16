@@ -102,7 +102,9 @@ public class Hotel {
 
 	
 	public void checkin(long confirmationNumber) {
-		// TODO Auto-generated method stub
+		if (findBookingByConfirmationNumber(confirmationNumber) == null) {
+            throw new RuntimeException("No booking for confirmation number exists");
+        }
 	}
 
 
