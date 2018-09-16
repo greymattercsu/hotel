@@ -125,7 +125,12 @@ public class Hotel {
 
 	
 	public void checkout(int roomId) {
-		// TODO Auto-generated method stub
+		Booking activeBooking = findActiveBookingByRoomId(roomId);
+        
+        if (activeBooking == null) {
+            throw new RuntimeException("No active booking found");
+		}
+		
 	}
 
 
