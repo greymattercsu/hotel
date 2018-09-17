@@ -132,8 +132,8 @@ public class HotelTest {
         //creating a arraylist of activeBooking to test which is checkin. Since we dont have arraylist.
         instance.activeBookingsByRoomId.put(room.getId(),booking);
 
-        //checking out the result
-        System.out.println(instance.activeBookingsByRoomId.get(room.getId()));
+        // checking out the result
+        // System.out.println(instance.activeBookingsByRoomId.get(room.getId()));
 
         //Storing the result from method to booking variable
         Booking bookinOut = instance.findActiveBookingByRoomId(room.getId());
@@ -141,11 +141,11 @@ public class HotelTest {
         
         instance.checkout(roomId);
 
-        //returns the state of the booking variable.  
+        //returns the state of the booking variable. Here the state is CHECKED_OUT. 
         bookinOut.getState();
 
-        //checking out the state of the booking
-        System.out.println("Room is:" + bookinOut.getState());
+        // checking out the state of the booking
+        // System.out.println("Room is:" + bookinOut.getState());
 
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
