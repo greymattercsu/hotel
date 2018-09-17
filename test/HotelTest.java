@@ -69,7 +69,13 @@ public class HotelTest {
     public void tearDown() {
     }
 
-    
+    @Rule 
+    public MethodRule watchman = new TestWatchman() {
+        @Override
+        public void starting(FrameworkMethod method) {
+            System.out.print("[Starting]: " + method.getName());
+        }
+    }
 
     /**
      * Test of book method, of class Hotel.
