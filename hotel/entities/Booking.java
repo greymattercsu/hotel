@@ -137,7 +137,13 @@ public class Booking {
 
 
 	public void addServiceCharge(ServiceType serviceType, double cost) {
-		// TODO Auto-generated method stub
+
+		//code from Bijan from his part
+		if (this.state != State.CHECKED_IN){
+						throw new RuntimeException();
+					}
+					ServiceCharge serviceCharge = new ServiceCharge(serviceType, cost);
+					charges.add(serviceCharge);
 	}
 
 
