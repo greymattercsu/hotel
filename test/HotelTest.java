@@ -80,7 +80,7 @@ public class HotelTest {
         
         long expResult = 1782018111;
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+        
         assertEquals(expResult, result);
     }
 
@@ -102,7 +102,8 @@ public class HotelTest {
 
        //this gives whether the state is checkin or not. It returns true .
        System.out.println("Room is checkin: " + booked.isCheckedIn());
-       fail("The test case is a prototype.");
+       
+       assertEquals(true, booked.isCheckedIn());
    }
 
     /**
@@ -125,8 +126,8 @@ public class HotelTest {
         instance.addServiceCharge(roomId, serviceType, cost);
 
         System.out.println("New: " + activeBooking.getCharges());
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        
     }
 
     /**
@@ -155,9 +156,7 @@ public class HotelTest {
         
         // checking out the state of the booking
         // System.out.println("Room is:" + bookinOut.getState());
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(true, bookinOut.isCheckedOut());
     }
     
 }
