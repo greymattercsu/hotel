@@ -42,6 +42,8 @@ public class HotelTest {
     long result = instance.book(room, guest, arrivalDate, stayLength, occupantNumber, creditCard);;
     ServiceType serviceType = ServiceType.ROOM_SERVICE;
     public Map<Long, Booking> bookingsByConfirmationNumber;
+    public Map<Integer, Booking> activeBookingsByRoomId;
+    public Booking booking = new Booking(guest,room, arrivalDate,stayLength,occupantNumber, creditCard);
     
     public HotelTest() {
     }
