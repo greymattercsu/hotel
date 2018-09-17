@@ -92,8 +92,17 @@ public class HotelTest {
    @Test
    public void testCheckin() {
        System.out.println("Testing of checkin method");
+
+       //booked method will return the booking by getActiveBookingByRoomId() method
+       Booking booked=instance.findBookingByConfirmationNumber(confirmationNumber);
+       
+       //the confirmationNumber is formatted as ddMMYYrrr which is the current date today.
        long confirmationNumber = result;
+
+       //the confirmation is passed so that the hotel can be checked in.
        instance.checkin(confirmationNumber);
+
+       //this gives whether the state is checkin or not. Here with dummydata the state is checkin.
        System.out.println(booked.getState());
        fail("The test case is a prototype.");
    }
