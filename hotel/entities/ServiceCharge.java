@@ -23,4 +23,9 @@ public class ServiceCharge {
 		return service.getDescription();
 	}
 
+	public String toString(){
+		return cost + "";
+	}
+
+
 }
