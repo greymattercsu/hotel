@@ -4,12 +4,12 @@ import org.junit.runner.notification.Failure;
 
 public class TestRunner {
    public static void main(String[] args) {
-      Result result = JUnitCore.runClasses(HotelTest.class);
-		
-      for (Failure failure : result.getFailures()) {
-         System.out.println(failure.toString());
-      }
-		
-      System.out.println(result.wasSuccessful());
+    System.out.println("Running Junit Test.");
+    Result result = JUnitCore.runClasses(HotelTest1.class);
+    System.out.println("[Test Executed]: " + result.getRunCount());
+    System.out.println("[Test result]: " + result.wasSuccessful());
+    for (Failure failure : result.getFailures()) {
+        System.out.println(failure.toString());
+    }
    }
 }
