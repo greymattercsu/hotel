@@ -75,7 +75,17 @@ public class HotelTest {
         public void starting(FrameworkMethod method) {
             System.out.print("[Starting]: " + method.getName());
         }
-    }
+
+        @Override
+        public void failed(Throwable e, FrameworkMethod method){
+            System.out.println(" [Failed]\n\t " + e);
+        }
+
+        @Override
+        public void succeeded(FrameworkMethod description) { 
+            System.out.println(" [PASSED]");
+        }
+    };
 
     /**
      * Test of book method, of class Hotel.
