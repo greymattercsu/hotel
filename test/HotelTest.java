@@ -35,15 +35,20 @@ public class HotelTest {
     
     Guest guest = new Guest("Saurav", "some address", 231245687);
     Date arrivalDate = new Date();
+
     int stayLength = 2;
     int occupantNumber = 2;
     CreditCard creditCard = new CreditCard(CreditCardType.MASTERCARD, 123456789, 236);
     Hotel instance = new Hotel();
     
     ServiceType serviceType = ServiceType.ROOM_SERVICE;
-    public Map<Long, Booking> bookingsByConfirmationNumber;
-    public Map<Integer, Booking> activeBookingsByRoomId;
-    public Booking booking = new Booking(guest,room, arrivalDate,stayLength,occupantNumber, creditCard);
+    long result =instance.book(room, guest,arrivalDate, stayLength, occupantNumber,creditCard);;
+    Booking booking = new Booking(guest,room, arrivalDate,stayLength,occupantNumber, creditCard);
+    static Booking bookingValue;
+    Booking booked = new Booking(guest,room, arrivalDate,stayLength,occupantNumber, creditCard);;
+    double cost = 20.0;
+    ServiceCharge serviceCharge = new ServiceCharge(serviceType, cost);
+    
     
     public HotelTest() {
     }
@@ -74,10 +79,9 @@ public class HotelTest {
         System.out.println("book");
         
         long expResult = 1782018111;
-        long result = instance.book(room, guest, arrivalDate, stayLength, occupantNumber, creditCard);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
