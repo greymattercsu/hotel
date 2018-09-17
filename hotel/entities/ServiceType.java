@@ -53,7 +53,7 @@ public enum ServiceType {
 
 	//added the toString method
 	public String toString(){
-		return identifier + description;
+		return identifier +","+ description;
 	 }
 
 	

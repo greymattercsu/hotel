@@ -39,7 +39,7 @@ public class HotelTest {
     int occupantNumber = 2;
     CreditCard creditCard = new CreditCard(CreditCardType.MASTERCARD, 123456789, 236);
     Hotel instance = new Hotel();
-    long result = instance.book(room, guest, arrivalDate, stayLength, occupantNumber, creditCard);;
+    
     ServiceType serviceType = ServiceType.ROOM_SERVICE;
     public Map<Long, Booking> bookingsByConfirmationNumber;
     public Map<Integer, Booking> activeBookingsByRoomId;
@@ -72,14 +72,8 @@ public class HotelTest {
     @Test
     public void testBook() {
         System.out.println("book");
-        Room room = null;
-        Guest guest = null;
-        Date arrivalDate = null;
-        int stayLength = 0;
-        int occupantNumber = 0;
-        CreditCard creditCard = null;
-        Hotel instance = new Hotel();
-        long expResult = 0L;
+        
+        long expResult = 1782018111;
         long result = instance.book(room, guest, arrivalDate, stayLength, occupantNumber, creditCard);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -123,8 +117,6 @@ public class HotelTest {
         //Storing the result from method to booking variable
         Booking activeBooking = instance.findActiveBookingByRoomId(room.getId());
 
-        
-    
         //testing out the method 
         instance.addServiceCharge(roomId, serviceType, cost);
 
