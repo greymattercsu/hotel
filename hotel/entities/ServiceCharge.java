@@ -23,6 +23,7 @@ public class ServiceCharge {
 		return service.getDescription();
 	}
 
+	//added the toString method
 	public String toString(){
 		return cost + " added to " + service;
 	}
