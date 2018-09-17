@@ -39,6 +39,9 @@ public class HotelTest {
     int occupantNumber = 2;
     CreditCard creditCard = new CreditCard(CreditCardType.MASTERCARD, 123456789, 236);
     Hotel instance = new Hotel();
+    long result = instance.book(room, guest, arrivalDate, stayLength, occupantNumber, creditCard);;
+    ServiceType serviceType = ServiceType.ROOM_SERVICE;
+    public Map<Long, Booking> bookingsByConfirmationNumber;
     
     public HotelTest() {
     }
