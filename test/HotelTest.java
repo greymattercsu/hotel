@@ -94,7 +94,7 @@ public class HotelTest {
        System.out.println("Testing of checkin method");
        long confirmationNumber = result;
        instance.checkin(confirmationNumber);
-       // TODO review the generated test code and remove the default call to fail.
+       System.out.println(booked.getState());
        fail("The test case is a prototype.");
    }
 

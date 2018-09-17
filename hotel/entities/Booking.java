@@ -82,6 +82,11 @@ public class Booking {
 	}
 
 
+	public State getState(){
+		return state;
+	}
+
+
 	public int getRoomId() {
 		return room.getId();
 	}
