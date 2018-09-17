@@ -110,17 +110,24 @@ public class HotelTest {
     /**
      * Test of addServiceCharge method, of class Hotel.
      */
-    // @Test
-    // public void testAddServiceCharge() {
-    //     System.out.println("addServiceCharge");
-    //     int roomId = 0;
-    //     ServiceType serviceType = null;
-    //     double cost = 0.0;
-    //     Hotel instance = new Hotel();
-    //     instance.addServiceCharge(roomId, serviceType, cost);
-    //     // TODO review the generated test code and remove the default call to fail.
-    //     fail("The test case is a prototype.");
-    // }
+    @Test
+    public void testAddServiceCharge() {
+        System.out.println("Testing addServiceCharge method");
+        int roomId = 0;
+        ServiceType serviceType = null;
+        double cost = 20.0;
+
+        //creating a arraylist of activeBooking to test which is checkin. Since we dont have arraylist.
+        instance.activeBookingsByRoomId.put(room.getId(),booking);
+
+        //Storing the result from method to booking variable
+        Booking activeBooking = instance.findActiveBookingByRoomId(room.getId());
+
+
+        instance.addServiceCharge(roomId, serviceType, cost);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 
     /**
      * Test of checkout method, of class Hotel.
