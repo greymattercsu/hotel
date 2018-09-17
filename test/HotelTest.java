@@ -140,6 +140,13 @@ public class HotelTest {
 
         
         instance.checkout(roomId);
+
+        //returns the state of the booking variable.  
+        bookinOut.getState();
+
+        //checking out the state of the booking
+        System.out.println("Room is:" + bookinOut.getState());
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
