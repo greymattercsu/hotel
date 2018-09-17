@@ -30,10 +30,15 @@ import java.util.List;
  */
 public class HotelTest {
 
+    //creating dummy datas for testing
     Room room = new Room(111, RoomType.DOUBLE);
     
     Guest guest = new Guest("Saurav", "some address", 231245687);
     Date arrivalDate = new Date();
+    int stayLength = 2;
+    int occupantNumber = 2;
+    CreditCard creditCard = new CreditCard(CreditCardType.MASTERCARD, 123456789, 236);
+    Hotel instance = new Hotel();
     
     public HotelTest() {
     }
