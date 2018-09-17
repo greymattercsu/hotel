@@ -129,8 +129,10 @@ public class HotelTest {
         System.out.println(cost);
         System.out.println(room.getId());
 
-
+        //testing out the method 
         instance.addServiceCharge(roomId, serviceType, cost);
+
+        System.out.println("New: " + activeBooking.getCharges());
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
