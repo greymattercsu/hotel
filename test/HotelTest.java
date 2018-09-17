@@ -29,6 +29,11 @@ import java.util.List;
  * @author PC
  */
 public class HotelTest {
+
+    Room room = new Room(111, RoomType.DOUBLE);
+    
+    Guest guest = new Guest("Saurav", "some address", 231245687);
+    Date arrivalDate = new Date();
     
     public HotelTest() {
     }
@@ -180,42 +185,42 @@ public class HotelTest {
     /**
      * Test of checkin method, of class Hotel.
      */
-//    @Test
-//    public void testCheckin() {
-//        System.out.println("checkin");
-//        long confirmationNumber = 0L;
-//        Hotel instance = new Hotel();
-//        instance.checkin(confirmationNumber);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+   @Test
+   public void testCheckin() {
+       System.out.println("checkin");
+       long confirmationNumber = 0L;
+       Hotel instance = new Hotel();
+       instance.checkin(confirmationNumber);
+       // TODO review the generated test code and remove the default call to fail.
+       fail("The test case is a prototype.");
+   }
 
     /**
      * Test of addServiceCharge method, of class Hotel.
      */
-    @Test
-    public void testAddServiceCharge() {
-        System.out.println("addServiceCharge");
-        int roomId = 0;
-        ServiceType serviceType = null;
-        double cost = 0.0;
-        Hotel instance = new Hotel();
-        instance.addServiceCharge(roomId, serviceType, cost);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    // @Test
+    // public void testAddServiceCharge() {
+    //     System.out.println("addServiceCharge");
+    //     int roomId = 0;
+    //     ServiceType serviceType = null;
+    //     double cost = 0.0;
+    //     Hotel instance = new Hotel();
+    //     instance.addServiceCharge(roomId, serviceType, cost);
+    //     // TODO review the generated test code and remove the default call to fail.
+    //     fail("The test case is a prototype.");
+    // }
 
     /**
      * Test of checkout method, of class Hotel.
      */
-    @Test
-    public void testCheckout() {
-        System.out.println("checkout");
-        int roomId = 0;
-        Hotel instance = new Hotel();
-        instance.checkout(roomId);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    // @Test
+    // public void testCheckout() {
+    //     System.out.println("checkout");
+    //     int roomId = 0;
+    //     Hotel instance = new Hotel();
+    //     instance.checkout(roomId);
+    //     // TODO review the generated test code and remove the default call to fail.
+    //     fail("The test case is a prototype.");
+    // }
     
 }
