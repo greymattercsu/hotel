@@ -123,12 +123,8 @@ public class HotelTest {
         //Storing the result from method to booking variable
         Booking activeBooking = instance.findActiveBookingByRoomId(room.getId());
 
-        //checking if the required value is recieved
-        System.out.println("Booking: " + activeBooking);
-        System.out.println(serviceType);
-        System.out.println(cost);
-        System.out.println(room.getId());
-
+        
+    
         //testing out the method 
         instance.addServiceCharge(roomId, serviceType, cost);
 
