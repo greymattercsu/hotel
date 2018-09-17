@@ -24,7 +24,7 @@ public class ServiceCharge {
 	}
 
 	public String toString(){
-		return cost + "";
+		return cost + " added to " + service;
 	}
 
 
