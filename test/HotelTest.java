@@ -102,8 +102,8 @@ public class HotelTest {
        //the confirmation is passed so that the hotel can be checked in.
        instance.checkin(confirmationNumber);
 
-       //this gives whether the state is checkin or not. Here with dummydata the state is checkin.
-       System.out.println(booked.getState());
+       //this gives whether the state is checkin or not. It returns true .
+       System.out.println("Room is checkin: " + booked.isCheckedIn());
        fail("The test case is a prototype.");
    }
 
@@ -143,7 +143,9 @@ public class HotelTest {
 
         //returns the state of the booking variable. Here the state is CHECKED_OUT. 
         bookinOut.getState();
-
+        bookinOut.isCheckedOut();
+        System.out.println("Room is checkedOut:" + bookinOut.isCheckedOut());
+        
         // checking out the state of the booking
         // System.out.println("Room is:" + bookinOut.getState());
 
