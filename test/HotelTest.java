@@ -131,7 +131,13 @@ public class HotelTest {
 
         //creating a arraylist of activeBooking to test which is checkin. Since we dont have arraylist.
         instance.activeBookingsByRoomId.put(room.getId(),booking);
-        
+
+        //checking out the result
+        System.out.println(instance.activeBookingsByRoomId.get(room.getId()));
+
+        //Storing the result from method to booking variable
+        Booking bookinOut = instance.findActiveBookingByRoomId(room.getId());
+
         
         instance.checkout(roomId);
         // TODO review the generated test code and remove the default call to fail.
