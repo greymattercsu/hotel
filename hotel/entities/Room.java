@@ -56,17 +56,12 @@ public class Room {
     }
 
     public Booking book(Guest guest, Date arrivalDate, int stayLength, int numberOfOccupants, CreditCard creditCard) {
-        // TODO Auto-generated method stub
-        // TODO Auto-generated method stub
-        //boolean avail = isAvailable(arrivalDate, stayLength);
-
         Booking booking = new Booking(guest, this, arrivalDate, stayLength, numberOfOccupants, creditCard);
         bookings.add(booking);
         return booking;
     }
 
     public void checkin() {
-        // TODO Auto-generated method stub
         if (state != State.READY) {
             throw new RuntimeException("Room is " + state);
         }
@@ -74,7 +69,6 @@ public class Room {
     }
 
     public void checkout(Booking booking) {
-        // TODO Auto-generated method stub
         if (state != State.OCCUPIED) {
             throw new RuntimeException("Room is " + state);
         }
