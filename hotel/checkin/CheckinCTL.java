@@ -80,7 +80,14 @@ public class CheckinCTL {
 
 	
 	public void checkInConfirmed(boolean confirmed) {
-		// TODO Auto-generated method stub
+
+		//adding in the run time exception code if the state is confirming
+		if (state != State.CONFIRMING) {
+            String mesg = String.format("CheckInCTL: State is not confirming : bad state : %s", state);
+            throw new RuntimeException(mesg);
+		}
+		
+		
 	}
 
 
