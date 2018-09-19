@@ -60,9 +60,7 @@ public class Room {
         // TODO Auto-generated method stub
         //boolean avail = isAvailable(arrivalDate, stayLength);
 
-        Room r = new Room(this.id, this.roomType);
-
-        Booking booking = new Booking(guest, r, arrivalDate, stayLength, numberOfOccupants, creditCard);
+        Booking booking = new Booking(guest, this, arrivalDate, stayLength, numberOfOccupants, creditCard);
         bookings.add(booking);
         return booking;
     }
