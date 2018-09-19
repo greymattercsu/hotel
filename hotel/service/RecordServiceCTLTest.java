@@ -54,7 +54,7 @@ public class RecordServiceCTLTest {
 
     @Test
     public void testServiceDetailsEnteredState() {
-        System.out.println("serviceDetailsEntered");
+        System.out.println("Test state of RecordServiceCTL after method call.");
         ServiceType serviceType = ServiceType.ROOM_SERVICE;
         double cost = 20.0;
         Hotel hotel = new Hotel();
