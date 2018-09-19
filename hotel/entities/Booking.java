@@ -27,10 +27,7 @@ public class Booking {
 
 
 	
-	public Booking(Guest guest, Room room, 
-			Date arrivalDate, int stayLength, 
-			int numberOfOccupants, 
-			CreditCard creditCard) {
+	public Booking(Guest guest, Room room, Date arrivalDate, int stayLength, int numberOfOccupants, CreditCard creditCard) {
 		
 		this.guest = guest;
 		this.room = room;
@@ -136,10 +133,11 @@ public class Booking {
             
 		// TODO Auto-generated method stub
             if (state != State.PENDING ){
-                throw new RunTimeException ("Room is not pending");
+                String msg = String.format("Booking: checkIn : bad state : %s", new Object[] { state });
+                throw new RuntimeException (msg);
             }
          
-            room.checkIn();
+            room.checkin();
             state = State.CHECKED_IN;
             
                 
@@ -150,7 +148,8 @@ public class Booking {
 	public void addServiceCharge(ServiceType serviceType, double cost) {
 		// TODO Auto-generated method stub
             if (state != State.CHECKED_IN){
-                throw new RunTimeException ("Room is not checked in");
+                tring msg = String.format("Booking: addServiceCharge : bad state : %s", new Object[] { state });
+                throw new RuntimeException (msg);
             }
             ServiceCharge serviceCharge = new ServiceCharge(serviceType, cost);
             charges.add(serviceCharge);
@@ -160,9 +159,10 @@ public class Booking {
 	public void checkOut() {
 		// TODO Auto-generated method stub
             if (state != State.CHECKED_IN){
-                throw new RunTimeException ("Room is not checked in")
+                String msg = String.format("Booking: checkOut : bad state : %s", new Object[] { state });
+                throw new RuntimeException (msg);
             }
-            room.checkout();
+            room.checkout(this);
             state = State.CHECKED_OUT;
 	}
 
