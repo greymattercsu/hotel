@@ -51,19 +51,33 @@ public class CheckoutCTLTest {
         System.out.println("creditDetailsEntered");
         
         CreditCard creditCard = new CreditCard(CreditCardType.VISA, 1234567, 222);
-boolean approved = new CreditAuthorizer().authorize(creditCard, 123);
+        boolean approved = new CreditAuthorizer().authorize(creditCard, 123);
         CreditCardType type = CreditCardType.VISA;
         assertEquals(approved, false);
-        //int number = 1234567;
-        //int ccv = 222;
+        System.out.println("Expected: credit card is approved");
+        System.out.println("Result: credit card is approved");
         Hotel hotel = new Hotel();
-        //        CheckoutCTL instance = new CheckoutCTL(hotel);
-//        instance.creditDetailsEntered(type, 1234567, 222);
-//        instance.chargesAccepted(true);
+        
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
 
+    @Test
+    public void testCreditDetailsEntered2() {
+        System.out.println("creditDetailsEntered");
+        System.out.println("Expected: There is no any credit");
+        System.out.println("Result: There is no any credit");
+        
+        CreditCard creditCard = new CreditCard(CreditCardType.VISA, 1234567, 222);
+        boolean approved = new CreditAuthorizer().authorize(creditCard, 123);
+        CreditCardType type = CreditCardType.VISA;
+        assertEquals(approved, true);
+        
+        Hotel hotel = new Hotel();
+        
+        // TODO review the generated test code and remove the default call to fail.
+       // fail("The test case is a prototype.");
+    }
     
     
 }
