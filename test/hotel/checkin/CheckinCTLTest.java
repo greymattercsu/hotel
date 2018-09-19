@@ -74,7 +74,25 @@ public class CheckinCTLTest {
     }
 
     
-    
+    /**
+     * Test of checkInConfirmed method, of class CheckinCTL.
+     */
+    @Test
+    public void testCheckInConfirmed() {
+        System.out.println("checkInConfirmed");
+        boolean confirmed = true;
+        
+        CheckinCTL instance = new CheckinCTL(hotel);
+        
+        
+        instance.confirmationNumberEntered(confirmationNumber);
+        
+        
+        instance.checkInConfirmed(confirmed);
+        
+        
+        
+    }
     
 
     
