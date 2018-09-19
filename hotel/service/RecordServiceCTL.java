@@ -51,7 +51,7 @@ public class RecordServiceCTL {
             throw new RuntimeException(msg);
         }
         hotel.addServiceCharge(roomNumber, serviceType, cost);
-        recordServiceUI.displayServiceChargeMessage(roomNumber, cost, "PayForServiceCTL: serviceDetailsEntered");
+        recordServiceUI.displayServiceChargeMessage(roomNumber, cost, serviceType.getDescription());
         state = State.COMPLETED;
         recordServiceUI.setState(RecordServiceUI.State.COMPLETED);
     }
