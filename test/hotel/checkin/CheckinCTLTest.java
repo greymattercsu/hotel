@@ -35,7 +35,24 @@ import java.util.List;
  */
 public class CheckinCTLTest {
     
+    //adding in the dummy variables need for the code to run properly
+    Room room = new Room(111, RoomType.DOUBLE);
+    
+    Guest guest = new Guest("Saurav", "some address", 231245687);
+    Date arrivalDate = new Date();
 
+    int stayLength = 2;
+    int occupantNumber = 2;
+    CreditCard creditCard = new CreditCard(CreditCardType.MASTERCARD, 123456789, 236);
+    Hotel hotel = new Hotel();
+    long confirmationNumber = hotel.book(room, guest,arrivalDate, stayLength, occupantNumber,creditCard);
+    ServiceType serviceType = ServiceType.ROOM_SERVICE;
+//    long confirmationNumber = hotel.book(room, guest,arrivalDate, stayLength, occupantNumber,creditCard);
+    Booking booking = new Booking(guest,room, arrivalDate,stayLength,occupantNumber, creditCard);
+    static Booking bookingValue;
+    Booking booked = new Booking(guest,room, arrivalDate,stayLength,occupantNumber, creditCard);;
+    double cost = 20.0;
+    ServiceCharge serviceCharge = new ServiceCharge(serviceType, cost);
     
     public CheckinCTLTest() {
     }
@@ -57,7 +74,7 @@ public class CheckinCTLTest {
     }
 
     
-
+    
     
 
     
