@@ -87,7 +87,18 @@ public class CheckinCTL {
             throw new RuntimeException(mesg);
 		}
 		
-		
+		//if it is true, then the checkin is activate and the state is changed to the completed
+		//if not, then the cancelled method is activated and the state is changed to true.
+		if (confirmed) {
+            hotel.checkin(confirmationNumber);
+            checkInUI.displayMessage("Checkin Confirmed");
+            state = State.COMPLETED;
+            checkInUI.setState(CheckinUI.State.COMPLETED);
+        } else {
+            checkInUI.displayMessage("Checking in cancelled");
+            state = State.CANCELLED;
+            checkInUI.setState(CheckinUI.State.CANCELLED);
+        }
 	}
 
 
