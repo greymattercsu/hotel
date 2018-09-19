@@ -80,14 +80,17 @@ public class CheckinCTLTest {
     @Test
     public void testCheckInConfirmed() {
         System.out.println("checkInConfirmed");
+
+        //this dummy variable is set to true so that the condition that we are testing is working.
         boolean confirmed = true;
         
+        //creating the object CheckinCTL  and passing in the hotel object
         CheckinCTL instance = new CheckinCTL(hotel);
-        
-        
+    
+        //this method passes in the confirmation number to the checkinCTL object
         instance.confirmationNumberEntered(confirmationNumber);
         
-        
+        //the real method to be tested is checked. This method works as expected.
         instance.checkInConfirmed(confirmed);
         
         
