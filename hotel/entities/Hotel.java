@@ -107,7 +107,7 @@ public class Hotel {
 		}
 		
 		Booking b = findBookingByConfirmationNumber(confirmationNumber);
-		roomId = b.getRoomId();
+		int roomId = b.getRoomId();
 		b.checkIn();
         activeBookingsByRoomId.put(roomId, b);
 	}
