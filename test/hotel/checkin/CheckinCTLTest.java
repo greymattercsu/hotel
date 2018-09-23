@@ -115,7 +115,23 @@ public class CheckinCTLTest {
         
         
     }
+
+   
+    //this is to check if the runtime exception is catched or not if the state is confirming
+    //the code catches the state if it is confirming and then shows the run time exception
+    @Test(expected = RuntimeException.class)
     
+    public void testCheckInConfirmed3() {
+        System.out.println("checkInConfirmed:Check in for null point exception");
+        boolean confirmed = true;
+        
+        CheckinCTL instance = new CheckinCTL(hotel);
+      
+        instance.checkInConfirmed(confirmed);
+        
+        
+        
+    }
 
     
     
