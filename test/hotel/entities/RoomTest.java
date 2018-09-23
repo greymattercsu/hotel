@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
+package hotel.entities;
 
-import hotel.entities.*;
 import hotel.credit.CreditCard;
 import hotel.credit.CreditCardType;
 import java.util.Date;
