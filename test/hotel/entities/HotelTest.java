@@ -205,4 +205,20 @@ public class HotelTest {
 //        assertEquals("[20.0 added to S,Room Service]", activeBooking.getCharges());
     }
 
+    //testing the null exception for the test checkout
+    @Test(expected = RuntimeException.class)
+    public void testCheckout1() {
+        System.out.println("checkout for null");
+        
+        
+
+        Booking bookinOut = instance.findActiveBookingByRoomId(room.getId());
+        instance.checkout(room.getId());
+        
+        System.out.println("Room is checkedOut:" + bookinOut.isCheckedOut());
+    
+        assertEquals(true, bookinOut.isCheckedOut());
+    }
+
+
 }
