@@ -188,4 +188,21 @@ public class HotelTest {
         
     }
 
+    //testing the null point exception for the addServiceCharge of the code
+    @Test(expected = RuntimeException.class)
+    public void testAddServiceCharge1() {
+        System.out.println("addServiceCharge testing of null");
+        
+        //active booking will be null since it does not get the room id
+        Booking activeBooking = instance.findActiveBookingByRoomId(room.getId());
+     
+        System.out.println("Booking: " + activeBooking);
+        
+        instance.addServiceCharge(room.getId(), serviceType, cost);
+        
+        System.out.println("New: " + activeBooking.getCharges());
+        
+//        assertEquals("[20.0 added to S,Room Service]", activeBooking.getCharges());
+    }
+
 }
