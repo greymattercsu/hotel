@@ -96,6 +96,25 @@ public class CheckinCTLTest {
         
         
     }
+
+    @Test
+    //this is to check if the state is set to cancelled if the confirmed is set to false
+    //the state is set to cancelled if the boolean is false.
+    public void testCheckInConfirmed1() {
+        System.out.println("checkInConfirmed for false statement");
+        boolean confirmed = false;
+        
+        CheckinCTL instance = new CheckinCTL(hotel);
+        
+        
+        instance.confirmationNumberEntered(confirmationNumber);
+        
+        
+        instance.checkInConfirmed(confirmed);
+        
+        
+        
+    }
     
 
     
