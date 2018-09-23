@@ -170,4 +170,22 @@ public class HotelTest {
         assertEquals(true, bookinOut.isCheckedOut());
     }
 
+    //checking the null exception part of the test checkin
+    @Test(expected = RuntimeException.class)
+    public void testCheckin1() {
+        System.out.println("checkinTest null point exception test");
+        
+        //confirmation number that does not exists
+        long confirmationNumber = 222;
+
+        booked = instance.findBookingByConfirmationNumber(confirmationNumber);
+
+        instance.checkin(confirmationNumber);
+       
+        System.out.println("Room is checkin:" + booked.isCheckedIn());
+        assertEquals(true, booked.isCheckedIn());
+
+        
+    }
+
 }
